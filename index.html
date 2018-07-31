@@ -10,13 +10,17 @@
 </head>
 
 <body>
-  <div id = "game-board">
-  </div>
-  <form onsubmit="return false">
+  <h1>Tic-tac-toe</h1>
+  <form id = "name-form" onsubmit="return false">
     <input type="text" name="player" id = "player-one" placeholder="Name" value = "Player 1">
     <input type="text" name="player" id = "player-two" placeholder="Name" value = "Player 2">
-    <input type="submit" value="Submit" class = "submitBtn" onclick = "makePlayers()">
+    <input type="submit" value="Start!" class = "submitBtn" onclick = "createPlayers()">
   </form>
+  <div id = "game-board"></div>
+  <div id = "win-overlay" onclick="replay()">
+    <div id = "win-text"></div>
+    <!--replay button-->
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
