@@ -5,22 +5,36 @@ const Player = function (name, symbol) {
 
 let playerOne, playerTwo
 const createPlayers = function() {
-    playerOne = Player(document.getElementById('player-one').value, "O")
-    playerTwo = Player(document.getElementById('player-two').value, "X")
-    let form = document.getElementById('name-form')
+    document.getElementById('game-board').style.display = 'flex';
+    playerOne = Player(document.getElementById('player-one').value, "X")
+    playerTwo = Player(document.getElementById('player-two').value, "O")
+    let form = document.getElementById('form-container')
     form.style.display = 'none'
 }
 
 const replay = function() {
-    document.getElementById('name-form').style.display = 'block'
+    //Toggles overlay and form
+    document.getElementById('form-container').style.display = 'flex'
     document.getElementById('win-overlay').style.display = 'none';
+    document.getElementById('game-board').style.display = 'none';
+    //Clears array, turn, and board
     GameBoard.board = new Array(9)
     GameBoard.turn = 0
+    GameBoard.arrayIndex = 0
+    let index = 0
+    for (let i of GameBoard.board) {
+        document.getElementsByClassName("tiles")[index].textContent = ""
+        index++
+    }
 }
 
 const displayWinner = function(winner) {
-    document.getElementById('win-text').textContent = `${winner} wins!`;
-    document.getElementById('win-overlay').style.display = 'block';
+    if (winner === 'tie') {
+        document.getElementById('win-text').textContent = `It's a tie!`;
+    } else {
+        document.getElementById('win-text').textContent = `${winner} wins!`;
+    }
+    document.getElementById('win-overlay').style.display = 'flex';
 }
 
 //Checks if 3 in a row
@@ -43,7 +57,7 @@ const checkWin = function(playerObj) {
             displayWinner(playerObj.name)
             playerObj.didWin = 'yes'
         } else if ((GameBoard.turn === 9) && (playerObj.didWin === 'no')) {
-            displayWinner('nobody')
+            displayWinner('tie')
         }
     }
 }

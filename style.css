@@ -1,21 +1,57 @@
+html {
+    font-family: 'Indie Flower', cursive;
+}
+
 h1 {
     text-align: center;
 }
 
 #game-board {
-    display:flex;
+    display:none;
     flex-wrap: wrap;
     width: 540px;
     height: 540px;
     margin: 50px auto;
 }
 
-#name-form {
+#form-container{
     display:flex;
     margin: 0 auto;
-    flex-wrap: wrap;
+    flex-direction:column;
     justify-content: center;
-    width:20%;
+    width: 50%;
+}
+
+#players-container {
+    display:flex;
+    justify-content: center;
+}
+
+p {
+    margin:0;
+    text-align: center;
+    font-size: 24pt;
+}
+
+
+#player-one, #player-two {
+    padding:10px;
+    text-align: center;
+    margin: 5px;
+    font-size: 12pt;
+}
+
+#submitBtn {
+    background-color: rgb(35, 32, 187);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 25px;
+    font-size: 14px;
+    width:200px;
+    height:125px;
+    font-size:36pt;
+    margin:30px auto;
 }
 
 button {
@@ -27,14 +63,7 @@ button {
     font-size: 50px;
 }
 
-.submitBtn {
-    background-color: rgb(0, 194, 48);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    padding: 10px 25px;
-    font-size: 14px;
-}
+
 
 #win-overlay {
     position: fixed;
@@ -47,13 +76,12 @@ button {
     bottom:0;
     background-color: rgba(0,0,0,0.5);
     z-index:2;
+    justify-content: center;
+    align-items: center;
 }
 
 #win-text {
-    position:absolute;
-    top:50%;
-    left:50%;
-    font: size 50%;
+    font-size: 72pt;
     color:white;
-    
+
 }

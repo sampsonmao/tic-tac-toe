@@ -7,19 +7,34 @@
   <meta name="description" content="Tic-tac-toe">
   <meta name="author" content="Sampson Mao">
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 </head>
 
 <body>
   <h1>Tic-tac-toe</h1>
-  <form id = "name-form" onsubmit="return false">
-    <input type="text" name="player" id = "player-one" placeholder="Name" value = "Player 1">
-    <input type="text" name="player" id = "player-two" placeholder="Name" value = "Player 2">
-    <input type="submit" value="Start!" class = "submitBtn" onclick = "createPlayers()">
+  <form id = "form-container" onsubmit="return false">
+    
+    <div id="players-container">
+      
+      <div id = "p1-container">
+        <p>X</p>
+        <input type="text" name="player" id = "player-one" placeholder="Name" value = "Player 1">
+      </div>
+      
+      <div id ="p2-container">
+        <p>O</p>
+        <input type="text" name="player" id = "player-two" placeholder="Name" value = "Player 2">
+      </div>
+    
+    </div>
+
+
+      <input type="submit" value="Play!" id = "submitBtn" onclick = "createPlayers()">
+
   </form>
   <div id = "game-board"></div>
   <div id = "win-overlay" onclick="replay()">
     <div id = "win-text"></div>
-    <!--replay button-->
   </div>
   <script src="script.js"></script>
 </body>
